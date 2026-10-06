@@ -47,6 +47,7 @@ export const categories = [
     blurb: "For the festivals you mark together.",
     tone: "sand",
     image: "/categories/festive-gifts.jpg",
+    imageClass: "object-[center_88%]",
   },
   {
     slug: "trending-gifts",

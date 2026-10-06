@@ -19,6 +19,7 @@ export function MediaFrame({
   priority = false,
   sizes = "(min-width: 1024px) 25vw, 50vw",
   className,
+  imageClassName,
 }: {
   src: string | null;
   alt: string;
@@ -26,6 +27,7 @@ export function MediaFrame({
   priority?: boolean;
   sizes?: string;
   className?: string;
+  imageClassName?: string;
 }) {
   return (
     <div className={cn("relative h-full w-full overflow-hidden", !src && tones[tone], className)}>
@@ -36,7 +38,10 @@ export function MediaFrame({
           fill
           priority={priority}
           sizes={sizes}
-          className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+          className={cn(
+            "object-cover transition duration-700 ease-out group-hover:scale-[1.04]",
+            imageClassName,
+          )}
         />
       ) : (
         <div className="absolute inset-0">

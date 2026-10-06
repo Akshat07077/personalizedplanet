@@ -139,7 +139,12 @@ export function CategoryGrid() {
                 className="group relative flex aspect-[3/4] flex-col justify-between overflow-hidden rounded-[1.6rem] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-28px_rgba(28,25,23,0.5)] sm:p-5"
               >
                 <span className="absolute inset-0 z-0">
-                  <MediaFrame src={category.image} alt="" tone={category.tone} />
+                  <MediaFrame
+                    src={category.image}
+                    alt=""
+                    tone={category.tone}
+                    imageClassName={"imageClass" in category ? category.imageClass : undefined}
+                  />
                 </span>
                 <span className="absolute inset-0 z-[1] bg-gradient-to-t from-black/75 via-black/25 to-black/15" />
                 <span className="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-ivory/90 text-ink">
