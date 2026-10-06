@@ -59,17 +59,39 @@ export function Hero() {
   );
 }
 
+const heroGifts = [
+  {
+    src: "/products/diary-gift-set.jpg",
+    alt: "Open diary gift set with a pen, card holder, and keychain",
+    label: "Diary gift set",
+    frame: "hero-gift-front",
+  },
+  {
+    src: "/products/leather-gift-set.jpg",
+    alt: "Personalised leather gift set in an open box",
+    label: "Leather gift set",
+    frame: "hero-gift-back",
+  },
+] as const;
+
 function HeroVisual() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-xl overflow-hidden rounded-[2rem] bg-[#141414] shadow-[0_30px_80px_-36px_rgba(28,25,23,0.45)]">
-      <Image
-        src={site.logoImage}
-        alt="Personalised Planet"
-        fill
-        priority
-        sizes="(min-width: 1024px) 36rem, 92vw"
-        className="object-contain"
-      />
+    <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] bg-ivory shadow-[0_30px_80px_-36px_rgba(28,25,23,0.45)]">
+      {heroGifts.map((gift, index) => (
+        <div key={gift.src} className={`absolute inset-0 ${gift.frame}`}>
+          <Image
+            src={gift.src}
+            alt={gift.alt}
+            fill
+            priority={index === 0}
+            sizes="(min-width: 1024px) 28rem, 92vw"
+            className="object-cover"
+          />
+          <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-5 pb-5 pt-16 text-sm font-medium text-white">
+            {gift.label}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
