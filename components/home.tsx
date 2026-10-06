@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -13,7 +12,7 @@ import {
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { InstagramIcon } from "@/components/icons";
-import { LogoMark } from "@/components/Logo";
+import { BrandLogo } from "@/components/BrandLogo";
 import { MediaFrame } from "@/components/MediaFrame";
 import { ProductCard } from "@/components/store";
 import { WhatsAppIcon } from "@/components/icons";
@@ -39,15 +38,7 @@ export function Hero() {
     <section className="overflow-hidden">
       <Container className="grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
         <div>
-          <Image
-            src={site.logoImage ?? "/brand/logo.jpg"}
-            alt="Personalised Planet"
-            width={180}
-            height={180}
-            priority
-            className="h-28 w-28 rounded-[1.6rem] bg-white object-contain shadow-[0_16px_40px_-24px_rgba(28,25,23,0.55)] sm:h-36 sm:w-36"
-          />
-          <p className="mt-6 text-xs font-medium uppercase tracking-[0.2em] text-gold">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
             Indore · Personalised gifts
           </p>
           <h1 className="mt-4 max-w-xl font-serif text-[3.1rem] leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">
@@ -69,34 +60,9 @@ export function Hero() {
 }
 
 function HeroVisual() {
-  if (site.heroImage) {
-    return (
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-[0_30px_80px_-36px_rgba(28,25,23,0.55)]">
-        <MediaFrame
-          src={site.heroImage}
-          alt="Personalised Planet gift"
-          priority
-          sizes="(min-width: 1024px) 36rem, 100vw"
-        />
-      </div>
-    );
-  }
-
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#efe6dc] shadow-[0_30px_80px_-36px_rgba(28,25,23,0.45)]">
-      <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#f3d5d0]/80" />
-      <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-[#d7e6e3]/90" />
-      <div className="absolute left-8 top-10 h-28 w-28 rounded-full border border-[#7A5C3E]/40" />
-      <div className="absolute inset-6 rounded-[1.6rem] border border-white/70" />
-      <div className="relative flex h-full flex-col justify-between p-8 sm:p-10">
-        <LogoMark className="h-16 w-16 text-ink" />
-        <div>
-          <p className="max-w-xs font-serif text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            For the moments worth keeping.
-          </p>
-          <p className="mt-4 text-sm uppercase tracking-[0.18em] text-gold">Made to order · Indore</p>
-        </div>
-      </div>
+    <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_80px_-36px_rgba(28,25,23,0.45)]">
+      <BrandLogo className="h-[82%] w-auto max-w-[88%]" />
     </div>
   );
 }

@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { BrandLogo } from "@/components/BrandLogo";
 import { cn } from "@/lib/cn";
 
 export function LogoMark({ className }: { className?: string }) {
@@ -24,30 +23,10 @@ export function LogoMark({ className }: { className?: string }) {
 }
 
 export function Logo({ className }: { className?: string }) {
-  if (site.logoImage) {
-    return (
-      <Link href="/" className={cn("inline-flex shrink-0 items-center", className)}>
-        <Image
-          src={site.logoImage}
-          alt="Personalised Planet"
-          width={160}
-          height={160}
-          priority
-          className="h-14 w-14 rounded-2xl bg-white object-contain"
-        />
-      </Link>
-    );
-  }
-
   return (
-    <Link href="/" className={cn("inline-flex shrink-0 items-center gap-2.5", className)}>
-      <span className="grid h-10 w-10 place-items-center rounded-2xl bg-ivory text-ink shadow-[inset_0_0_0_1px_rgba(28,25,23,0.06)]">
-        <LogoMark className="h-7 w-7" />
-      </span>
-      <span className="font-serif text-[15px] leading-[1.05] tracking-tight text-ink">
-        Personalised
-        <span className="block">Planet</span>
-      </span>
+    <Link href="/" className={cn("inline-flex shrink-0 items-center", className)} aria-label="Personalised Planet">
+      <BrandLogo className="h-14 w-auto" />
     </Link>
   );
 }
+
