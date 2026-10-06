@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   description: site.tagline,
   icons: {
-    icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    icon: [{ url: site.logoImage, type: "image/jpeg" }],
   },
 };
 

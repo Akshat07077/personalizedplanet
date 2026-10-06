@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -12,7 +13,6 @@ import {
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { InstagramIcon } from "@/components/icons";
-import { BrandLogo } from "@/components/BrandLogo";
 import { MediaFrame } from "@/components/MediaFrame";
 import { ProductCard } from "@/components/store";
 import { WhatsAppIcon } from "@/components/icons";
@@ -61,8 +61,15 @@ export function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_80px_-36px_rgba(28,25,23,0.45)]">
-      <BrandLogo className="h-[82%] w-auto max-w-[88%]" />
+    <div className="relative mx-auto aspect-square w-full max-w-xl overflow-hidden rounded-[2rem] bg-[#141414] shadow-[0_30px_80px_-36px_rgba(28,25,23,0.45)]">
+      <Image
+        src={site.logoImage}
+        alt="Personalised Planet"
+        fill
+        priority
+        sizes="(min-width: 1024px) 36rem, 92vw"
+        className="object-contain"
+      />
     </div>
   );
 }

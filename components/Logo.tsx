@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BrandLogo } from "@/components/BrandLogo";
 import { cn } from "@/lib/cn";
+import { site } from "@/lib/site";
 
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -25,7 +26,14 @@ export function LogoMark({ className }: { className?: string }) {
 export function Logo({ className }: { className?: string }) {
   return (
     <Link href="/" className={cn("inline-flex shrink-0 items-center", className)} aria-label="Personalised Planet">
-      <BrandLogo className="h-14 w-auto" />
+      <Image
+        src={site.logoImage}
+        alt=""
+        width={972}
+        height={1024}
+        priority
+        className="h-14 w-14 rounded-full object-cover"
+      />
     </Link>
   );
 }
